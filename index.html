@@ -3,23 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DroomMe</title>
+    <title>DroomMe - Droomjournaal</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>DroomMe</h1>
-        <p>Jouw persoonlijke droomdagboek</p>
-        <form id="dreamForm">
-            <label for="dreamTitle">Titel van de droom:</label>
-            <input type="text" id="dreamTitle" required>
-            <label for="dreamContent">Beschrijving:</label>
-            <textarea id="dreamContent" rows="5" required></textarea>
-            <label for="dreamDate">Datum:</label>
-            <input type="date" id="dreamDate" required>
-            <button type="submit">Opslaan</button>
-        </form>
-        <div id="dreamsList"></div>
+        <header>
+            <h1>DroomMe</h1>
+            <p>Jouw persoonlijke droomjournaal</p>
+        </header>
+
+        <section class="form-section">
+            <h2>Nieuwe droom</h2>
+            <form id="dreamForm">
+                <label for="dreamTitle">Titel</label>
+                <input type="text" id="dreamTitle" placeholder="Korte titel van de droom" required>
+
+                <label for="dreamContent">Beschrijving</label>
+                <textarea id="dreamContent" rows="5" placeholder="Wat heb je gedroomd?" required></textarea>
+
+                <div class="row">
+                    <div>
+                        <label for="dreamDatetime">Datum & tijd</label>
+                        <input type="datetime-local" id="dreamDatetime" required>
+                    </div>
+                    <div>
+                        <label for="dreamMood">Stemming (1-5)</label>
+                        <select id="dreamMood">
+                            <option value="">Geen</option>
+                            <option value="1">1 - Heel negatief</option>
+                            <option value="2">2 - Negatief</option>
+                            <option value="3">3 - Neutraal</option>
+                            <option value="4">4 - Positief</option>
+                            <option value="5">5 - Heel positief</option>
+                        </select>
+                    </div>
+                </div>
+
+                <label for="dreamTags">Tags (komma-gescheiden)</label>
+                <input type="text" id="dreamTags" placeholder="bijv. vliegen, achtervolging, bekende personen">
+                <div class="tag-suggestions">
+                    <span data-tag="vliegen">vliegen</span>
+                    <span data-tag="achtervolging">achtervolging</span>
+                    <span data-tag="bekende personen">bekende personen</span>
+                    <span data-tag="vallen">vallen</span>
+                    <span data-tag="school">school</span>
+                </div>
+
+                <button type="submit">Droom opslaan</button>
+            </form>
+        </section>
+
+        <section class="search-section">
+            <h2>Overzicht</h2>
+            <input type="search" id="searchInput" placeholder="Zoek in dromen, titels of tags...">
+            <div id="dreamsList"></div>
+        </section>
+
+        <section class="analysis-section">
+            <h2>Analyse</h2>
+            <button id="analyzeBtn" type="button">Analyseer dromen</button>
+            <div id="analysisResult"></div>
+        </section>
+
+        <section class="reminder-section">
+            <h2>Ochtendherinnering</h2>
+            <button id="notifyBtn" type="button">Herinnering instellen (notificatie)</button>
+            <p class="hint">Staat de pagina open of is deze toegevoegd aan het beginscherm? Dan kan een notificatie verschijnen.</p>
+        </section>
     </div>
     <script src="script.js"></script>
 </body>
