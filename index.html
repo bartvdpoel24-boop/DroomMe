@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DroomMe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>DroomMe</h1>
+        <p>Jouw persoonlijke droomdagboek</p>
+        <form id="dreamForm">
+            <label for="dreamTitle">Titel van de droom:</label>
+            <input type="text" id="dreamTitle" required>
+            <label for="dreamContent">Beschrijving:</label>
+            <textarea id="dreamContent" rows="5" required></textarea>
+            <label for="dreamDate">Datum:</label>
+            <input type="date" id="dreamDate" required>
+            <button type="submit">Opslaan</button>
+        </form>
+        <div id="dreamsList"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
